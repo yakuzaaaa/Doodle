@@ -1,0 +1,62 @@
+<html>
+    <body>
+
+        <div class="container">
+            <canvas id="exp-canvas"></canvas>
+        </div>
+
+        <script>
+            var canvas = document.getElementById('exp-canvas');
+            var ctx = canvas.getContext('2d');
+
+            draw();
+
+            window.addEventListener('resize', draw);
+
+            function draw() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                ctx.fillStyle = "#000000";
+                ctx.font = '300px impact';
+                ctx.fillText("Nilarnab", 150, 300);
+
+                mapCoordinates();
+            }
+
+            function mapCoordinates() {
+                var particles = [];
+                var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                for (var h = 0; h < canvas.height; h+=10) {
+                    for (var w = 0; w < canvas.width; w+=10) {
+                        var pixel = imageData.data[((w + (h * canvas.width)) * 4) - 1];
+                        if (pixel === 255) {
+                            var startX = Math.random() * canvas.width;
+                            var startY = Math.random() * canvas.height;
+                            particles.push({
+                                c: '#' + (Math.random() * 0x949494 + 0xaaaaaa | 0).toString(16),
+                                x: w, //goal position
+                                y: h,
+                                x2: startX, //start position
+                                y2: startY,
+                                r: true, //Released (to fly free!)
+                                v: {x: (w - startX) / 40, y: (h - startY) / 40}
+                            });
+                        }
+                    }
+                }
+
+                setInterval(drawCircle.bind(this, particles), 10);
+            }
+
+            function drawCircle(particles) {
+                for (var i = 0; i < particles.length; i++) {
+                    ctx.fillStyle = particles[i].c;
+                    ctx.beginPath();
+                    ctx.arc(particles[i].x2, particles[i].y2, 10, 0, Math.PI * 2, true);
+                    ctx.closePath();
+                    ctx.fill();
+                }
+            }
+        </script>
+    </body>
+</html>
