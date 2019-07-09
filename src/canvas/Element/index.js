@@ -1,10 +1,10 @@
 export default class El {
-  constructor (_type, _id, paper) {
+  constructor (_type, _id, paper, attrs) {
     this._id = _id;
     this._type = _type;
     this.paper = paper;
     this.events = {};
-    this.attrs = {};
+    this.attrs = Object.assign({}, attrs);
   }
   setAttributes(attr) {
     Object.assign(this.attrs, attr);
@@ -17,6 +17,9 @@ export default class El {
   }
   getAttributes() {
     return this.attrs;
+  }
+  getType() {
+    return this._type;
   }
   addEventListener (eventName, callback) {
     this.events[eventName] = callback;

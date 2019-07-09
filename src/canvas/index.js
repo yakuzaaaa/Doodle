@@ -1,5 +1,6 @@
 import Rect from "./Element/Rect";
 import Circle from "./Element/Circle";
+import EventTracker from "./EventTracker";
 
 class Canvas {
   constructor () {
@@ -23,20 +24,17 @@ class Canvas {
 
     this.elements[el._id] = el;
 
+    this.eventTracker.addElement(el);
+
     return el;
   }
 
+  getCanvas() {
+    return this._canvas;
+  }
+
   _createEventTracker () {
-    const eventTracker = document.createElement('canvas');
-    
-    eventTracker.position = 'absolute';
-    eventTracker.left = 0;
-    eventTracker.top = 0;
-
-    this._canvas.appendChild(eventTracker);
-    this.eventTracker = eventTracker;
-
-    // eventTracker.addEventListener('click', );
+    this.eventTracker = new EventTracker(this);
   }
 
   _getAvailableId () {

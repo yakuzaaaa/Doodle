@@ -8,10 +8,10 @@ import Canvas from './canvas';
     // third = canvas.drawFillCircle(120, 10, 400, 100, '#ff00ff');
 
   first.addEventListener('click', () => {
-    alert(first.fill);
+    alert(first.getAttribute('fill'));
   });
 
   second.addEventListener('click', () => {
-    alert(second.fill);
+    alert(second.getAttribute('fill'));
   });
 })();
