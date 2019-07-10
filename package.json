@@ -1,21 +1,20 @@
 {
-  "name": "learning_webgl_and_canvas",
+  "name": "Doodle",
   "version": "1.0.0",
-  "description": "A beginner to pro path repository for web graphics",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --host 0.0.0.0 --port 3000 --config webpack.config.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yakuzaaaa/learning_webgl_and_canvas.git"
+    "url": "git+https://github.com/yakuzaaaa/Doodle.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/yakuzaaaa/learning_webgl_and_canvas/issues"
+    "url": "https://github.com/yakuzaaaa/Doodle/issues"
   },
-  "homepage": "https://github.com/yakuzaaaa/learning_webgl_and_canvas#readme",
+  "homepage": "https://github.com/yakuzaaaa/Doodle#readme",
   "devDependencies": {
     "@babel/core": "^7.5.0",
     "@babel/preset-env": "^7.5.0",
