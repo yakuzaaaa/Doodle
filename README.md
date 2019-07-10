@@ -1,2 +1,2 @@
-# learning_webgl_and_canvas
-A beginner to pro path repository for web graphics
+# A canvas sketching library
+Seamless APIs to make life easy for a canvas artist.
